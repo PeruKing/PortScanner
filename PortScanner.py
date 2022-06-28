@@ -24,7 +24,7 @@ try:
         # Socket Verbindung schließen
         sock.close()
 except Exception:
-    print ("Ein Fehler ist aufgetretten")
+    print ("Ein Fehler ist aufgetreten")
     sys.exit()
 
 # Die Zeit berechnen, wie lange der Scan gebraucht hat   
