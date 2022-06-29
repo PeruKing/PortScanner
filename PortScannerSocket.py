@@ -35,7 +35,7 @@ while True:
 
     # User wahl der Scan Methode  
     while True:
-        methode = input(f"\nWillst du die Port selber wählen(s) oder das Ziehl auf wichtige Ports überprüfen lassen(w)? ")
+        methode = input(f"\nWillst du die Ports selber wählen(s) oder das Ziel auf wichtige Ports überprüfen lassen(w)? ")
         if methode == "w" or methode == "s":
             break
         
