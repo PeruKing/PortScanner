@@ -72,7 +72,7 @@ while True:
                 pass
 
     # Port Scanning mit der Liste imp_port   
-    elif methode == "w":
+    if methode == "w":
         for port in imp_port:
             try:
                 # Socket erstellen
