@@ -58,8 +58,15 @@ for port in range(port_min, port_max + 1):
 
 # Ausgabe der Offenen Port aus der Liste open_ports
 for port in open_ports:
-    # f um die Int Variablen leichter in den print-Befehl einzubetten
-    print(f"Port {port} ist offen {ip_add_entered}.")
+    if port == 22:
+        print(f"Port {port} ssh ist offen {ip_add_entered}.")
+    elif port == 80:
+        print(f"Port {port} http ist offen {ip_add_entered}.")
+    elif port == 433:
+        print(f"Port {port} https ist offen {ip_add_entered}.")        
+    else:
+        # f um die Int Variablen leichter in den print-Befehl einzubetten
+        print(f"Port {port} ist offen {ip_add_entered}.")
 
 # Die Zeit berechnen, wie lange der Scan gebraucht hat   
 tend = datetime.now()
