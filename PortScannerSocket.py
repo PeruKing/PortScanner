@@ -4,7 +4,10 @@ import sys
 from datetime import datetime
 
  # Ein Target defenieren
-target = "preply.com"
+print("Bitte gibt deine URL ein.")
+print("Beispiel: google.com")
+target = input()
+
 # Um die IP Adresse von einem Hostname zu bekommen
 targetip = socket.gethostbyname(target)
 
@@ -13,7 +16,7 @@ tstart = datetime.now()
 
 try:
     # Die Ports durchgehen
-    for p in range(1, 23): 
+    for p in range(1, 999): 
         # Sokcet erstellen .AF_INET (IPv4), .SOCK_STREAM (Datenübertragungsrate)
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         # Ergebiss erstellen _ex heißt, dass er keine Fehler ausgibt
