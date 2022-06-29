@@ -5,6 +5,18 @@ from datetime import datetime
 from art import*
 import re # Um eien Format zu defenieren
 
+# Um die in den print zu stylen
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
 # Pattern für die IP-Adresse
 ip_add_pattern = re.compile("^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$")
 # Pattern für die Ports
@@ -27,7 +39,7 @@ while True:
 
     # User soll die IP-Adresse eingeben
     while True:
-        ip_add_entered = input("\nGib bitte eine IP-Adresse ein: ")
+        ip_add_entered = input(f"\nGib bitte eine {bcolors.BOLD}IP-Adresse{bcolors.ENDC} ein: ")
         # Überprüft ob die IP-Adresse valiede ist
         if ip_add_pattern.search(ip_add_entered):
             print(f"{ip_add_entered} es ist eine Valiede IP-Adresse")
@@ -35,7 +47,7 @@ while True:
 
     # User wahl der Scan Methode  
     while True:
-        methode = input("\nWillst du die Port selber wählen(s) oder das Ziehl auf wichtige Ports überprüfen lassen(w)? ")
+        methode = input(f"\nWillst du die Port selber wählen({bcolors.OKBLUE}s{bcolors.ENDC}) oder das Ziehl auf wichtige Ports überprüfen lassen({bcolors.OKBLUE}w{bcolors.ENDC})? ")
         if methode == "w" or methode == "s":
             break
         
@@ -92,28 +104,28 @@ while True:
     # Ausgabe der Offenen Port aus der Liste open_ports
     for port in open_ports:
         if port == 22:
-            print(f"\nPort {port} ssh ist offen {ip_add_entered}.")
+            print(f"\nPort {bcolors.HEADER}{port}{bcolors.ENDC} ssh ist offen {ip_add_entered}.")
         elif port == 21:
-            print(f"\nPort {port} ftp ist offen {ip_add_entered}.")
+            print(f"\nPort {bcolors.HEADER}{port}{bcolors.ENDC} ftp ist offen {ip_add_entered}.")
         elif port == 23:
-            print(f"\nPort {port} telnet ist offen {ip_add_entered}.")
+            print(f"\nPort {bcolors.HEADER}{port}{bcolors.ENDC} telnet ist offen {ip_add_entered}.")
         elif port == 80:
-            print(f"\nPort {port} http ist offen {ip_add_entered}.")
+            print(f"\nPort {bcolors.HEADER}{port}{bcolors.ENDC} http ist offen {ip_add_entered}.")
         elif port == 139:
-            print(f"\nPort {port} smb ist offen {ip_add_entered}.")
+            print(f"\nPort {bcolors.HEADER}{port}{bcolors.ENDC} smb ist offen {ip_add_entered}.")
         elif port == 433:
-            print(f"\nPort {port} https ist offen {ip_add_entered}.")   
+            print(f"\nPort {bcolors.HEADER}{port}{bcolors.ENDC} https ist offen {ip_add_entered}.")   
         elif port == 445:
-            print(f"\nPort {port} smb ist offen {ip_add_entered}.")
+            print(f"\nPort {bcolors.HEADER}{port}{bcolors.ENDC} smb ist offen {ip_add_entered}.")
         elif port == 3306:
-            print(f"\nPort {port} mysql ist offen {ip_add_entered}.")
+            print(f"\nPort {bcolors.HEADER}{port}{bcolors.ENDC} mysql ist offen {ip_add_entered}.")
         elif port == 3389:
-            print(f"\nPort {port} rdp ist offen {ip_add_entered}.")
+            print(f"\nPort {bcolors.HEADER}{port}{bcolors.ENDC} rdp ist offen {ip_add_entered}.")
         elif port == 5900:
-            print(f"\nPort {port} vnc ist offen {ip_add_entered}.")
+            print(f"\nPort {bcolors.HEADER}{port}{bcolors.ENDC} vnc ist offen {ip_add_entered}.")
         else:
             # f um die Int Variablen leichter in den print-Befehl einzubetten
-            print(f"\nPort {port} ist offen {ip_add_entered}.")
+            print(f"\nPort {bcolors.HEADER}{port}{bcolors.ENDC} ist offen {ip_add_entered}.")
 
     # Die Zeit berechnen, wie lange der Scan gebraucht hat   
     tend = datetime.now()
