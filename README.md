@@ -1,3 +1,3 @@
 # PortScanner
 
-My first Port Scanner
+Two really simple Port Scanner
