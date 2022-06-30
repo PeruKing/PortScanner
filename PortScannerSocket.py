@@ -28,7 +28,7 @@ while True:
 
     # User soll die IP-Adresse eingeben
     while True:
-        ip_add_entered = input(f"\nGib bitte eine {Fore.BLUE}IP-Adresse{Style.RESET_ALL} ein: ")
+        ip_add_entered = input(f"\nGib bitte eine IP-Adresse ein: ")
         # Überprüft ob die IP-Adresse valiede ist
         if ip_add_pattern.search(ip_add_entered):
             print(f"{ip_add_entered} es ist eine Valiede IP-Adresse")
@@ -36,7 +36,7 @@ while True:
 
     # User wahl der Scan Methode  
     while True:
-        methode = input(f"\nWillst du die Ports selber wählen({Fore.BLUE}s{Style.RESET_ALL}) oder das Ziel auf wichtige Ports überprüfen lassen({Fore.BLUE}w{Style.RESET_ALL})? ")
+        methode = input(f"\nWillst du die Ports selber wählen(s) oder das Ziel auf wichtige Ports überprüfen lassen(w)? ")
         if methode == "w" or methode == "s":
             break
         
@@ -48,7 +48,7 @@ while True:
     if methode == "s":
         while True:
             # User soll Ports angeben
-            print(f"Bitte gib die Portspanne an, die du Scannen willst, in diesem Format: {Fore.BLUE}<int>-<int>{Style.RESET_ALL} (Beispiel: 60-120)")
+            print(f"Bitte gib die Portspanne an, die du Scannen willst, in diesem Format: <int>-<int> (Beispiel: 60-120)")
             port_range = input("Portspanne: ")
             # Port überprüfen
             port_range_valid = port_range_pattern.search(port_range.replace(" ",""))
@@ -93,28 +93,28 @@ while True:
     # Ausgabe der Offenen Port aus der Liste open_ports
     for port in open_ports:
         if port == 22:
-            print(f"\nPort {Fore.MAGENTA}{port}{Style.RESET_ALL} ssh ist offen {ip_add_entered}.")
+            print(f"\nPort {port} ssh ist offen {ip_add_entered}.")
         elif port == 21:
-            print(f"\nPort {Fore.MAGENTA}{port}{Style.RESET_ALL} ftp ist offen {ip_add_entered}.")
+            print(f"\nPort {port} ftp ist offen {ip_add_entered}.")
         elif port == 23:
-            print(f"\nPort {Fore.MAGENTA}{port}{Style.RESET_ALL} telnet ist offen {ip_add_entered}.")
+            print(f"\nPort {port} telnet ist offen {ip_add_entered}.")
         elif port == 80:
-            print(f"\nPort {Fore.MAGENTA}{port}{Style.RESET_ALL} http ist offen {ip_add_entered}.")
+            print(f"\nPort {port} http ist offen {ip_add_entered}.")
         elif port == 139:
-            print(f"\nPort {Fore.MAGENTA}{port}{Style.RESET_ALL} smb ist offen {ip_add_entered}.")
+            print(f"\nPort {port} smb ist offen {ip_add_entered}.")
         elif port == 433:
-            print(f"\nPort {Fore.MAGENTA}{port}{Style.RESET_ALL} https ist offen {ip_add_entered}.")   
+            print(f"\nPort {port} https ist offen {ip_add_entered}.")   
         elif port == 445:
-            print(f"\nPort {Fore.MAGENTA}{port}{Style.RESET_ALL} smb ist offen {ip_add_entered}.")
+            print(f"\nPort {port} smb ist offen {ip_add_entered}.")
         elif port == 3306:
-            print(f"\nPort {Fore.MAGENTA}{port}{Style.RESET_ALL} mysql ist offen {ip_add_entered}.")
+            print(f"\nPort {port} mysql ist offen {ip_add_entered}.")
         elif port == 3389:
-            print(f"\nPort {Fore.MAGENTA}{port}{Style.RESET_ALL} rdp ist offen {ip_add_entered}.")
+            print(f"\nPort {port} rdp ist offen {ip_add_entered}.")
         elif port == 5900:
-            print(f"\nPort {Fore.MAGENTA}{port}{Style.RESET_ALL} vnc ist offen {ip_add_entered}.")
+            print(f"\nPort {port} vnc ist offen {ip_add_entered}.")
         else:
             # f um die Int Variablen leichter in den print-Befehl einzubetten
-            print(f"\nPort {Fore.MAGENTA}{port}{Style.RESET_ALL} ist offen {ip_add_entered}.")
+            print(f"\nPort {port} ist offen {ip_add_entered}.")
 
     # Die Zeit berechnen, wie lange der Scan gebraucht hat   
     tend = datetime.now()
